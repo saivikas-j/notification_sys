@@ -12,6 +12,19 @@ Use Node version >= 18
 Make sure the pollution-service server is running before running it.<br/>
 You can also create a job using cron to periodically run the code after a certain interval
 
+## Scheduling
+
+1. On your terminal, open crontab file for editing
+
+   ```
+     crontab -e
+   ```
+2. Add the following line to run npm start every day. This example runs it at midnight:
+   ```
+     0 0 * * * cd <path to your project folder> && npm start
+   ```
+   
+
 
 
 ## Guide
