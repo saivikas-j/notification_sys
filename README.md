@@ -17,4 +17,4 @@ Make sure the pollution-service server is running before running it.
 * The program then computes the AQI values for PM2.5 and PM10 for each station. 
 * The program then checks that recorded date of the pollutants values' for each station and only considers the ones whose recorded date matches the current date on which the program is being run.
 * After filtering out the current data, it iterates over each user who has subscribed to daily notifications and checks their last send date and considers only the ones whose last send date is atleast one less than the current date.
-*Next the program checks for the localities for which the user requires the pollution data and sends only those corrseponding localities' data if they are present in the filtered-out latest pollution data.
+* Next the program checks for the localities for which the user requires the pollution data and sends only those corrseponding localities' data if they are present in the filtered-out latest pollution data.
