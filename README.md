@@ -9,7 +9,10 @@ Use Node version >= 18
   npm start
 ```
 
-Make sure the pollution-service server is running before running it.
+Make sure the pollution-service server is running before running it.<br/>
+You can also create a job using cron to periodically run the code after a certain interval
+
+
 
 ## Guide
 
