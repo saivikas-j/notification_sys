@@ -1,0 +1,30 @@
+{
+  "name": "notification_sys",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && ts-node-dev ./App.ts",
+    "lint": "eslint *.ts",
+    "format": "eslint *.ts --fix",
+    "test": "jest --watchAll --no-cache"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./server/test/setup.ts"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "nodemailer-express-handlebars": "^6.1.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/nodemailer-express-handlebars": "^4.0.5",
+    "ts-node-dev": "^2.0.0"
+  }
+}
