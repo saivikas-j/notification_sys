@@ -3,25 +3,14 @@
 ## Installation
 
 Use Node version >= 18
-
+Before running, add your email address and password in ./services/sendmail.ts file in the creation of the transporter
 ```
   npm install
   npm start
 ```
 
 Make sure the pollution-service server is running before running it.<br/>
-You can also create a job using cron to periodically run the code after a certain interval
-
-## Scheduling
-
-1. On your terminal, open crontab file for editing
-
-   ```
-     crontab -e
-   ```
-2. Add the following line to run npm start every day. This example runs it at midnight:
-   ```
-     0 0 * * * cd <path to your project folder> && npm start
+You can also modify index.ts to change the time at which the job is to run
    ```
    
 
@@ -34,3 +23,4 @@ You can also create a job using cron to periodically run the code after a certai
 * The program then checks that recorded date of the pollutants values' for each station and only considers the ones whose recorded date matches the current date on which the program is being run.
 * After filtering out the current data, it iterates over each user who has subscribed to daily notifications and checks their last send date and considers only the ones whose last send date is atleast one less than the current date.
 * Next the program checks for the localities for which the user requires the pollution data and sends only those corrseponding localities' data if they are present in the filtered-out latest pollution data, through nodemailer using handlebar templates.
+* A job is scheduled running our main program every day.
