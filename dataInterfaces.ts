@@ -8,6 +8,7 @@ interface iUserData {
     sub: boolean;
     areas: string[];
     id: string;
+    lastSend: Date;
 }
 
 interface iPollutionData {

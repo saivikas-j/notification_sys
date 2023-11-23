@@ -16,8 +16,8 @@ export const sendMail = async (user: iUserData, AQIvalues: iAQIData, date: Date,
         port: 465,
         secure: true,
         auth: {
-        user: '<YOUR_EMAIL_ID',
-        pass: '<YOUR_PASSWORD>',
+        user: '<YOUR_EMAIL_ADDRESS>',
+        pass: '<YOUR_EMAIL_PASSWORD>',
         },
     });
 

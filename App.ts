@@ -4,6 +4,7 @@ import { getAllUserData } from "./api/getAllUsers";
 import { getAllLatestData } from "./api/getLatestData";
 import { getDataSourceMappingAPi } from "./api/getMapping";
 import getText from "./services/getText";
+import { changeLastSend } from "./api/modifyUsers";
 import { iUserData, iPollutionData, iSourceMap, iAQIData } from "./dataInterfaces";
 
 const App = async () => {
@@ -109,8 +110,13 @@ const App = async () => {
                 filteredAQI[key] = AQIDetails[key];
         
 
-        if(allUsers[i].sub && Object.keys(filteredAQI).length > 0)
-            await sendMail(allUsers[i], filteredAQI, currDate, AQIparams);
+        let lastSendDate = new Date(allUsers[i].lastSend);
+        if((lastSendDate.getDate() - currDate.getDate()) < 0 || (lastSendDate.getMonth() - currDate.getMonth()) < 0 || (lastSendDate.getFullYear() - currDate.getFullYear()) < 0)
+            if(allUsers[i].sub && allUsers[i].emailVerified && Object.keys(filteredAQI).length > 0)
+            {
+                await sendMail(allUsers[i], filteredAQI, currDate, AQIparams);
+                await changeLastSend(allUsers[i].id, currDate);
+            }
     }
 
 }

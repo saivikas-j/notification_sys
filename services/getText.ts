@@ -1,6 +1,5 @@
 const getText = (aqi: number | null): string => {
     
-    console.log(aqi);
     if(aqi === null || isNaN(aqi)) return '---';
     if (aqi <= 50) return "Good";
     if (aqi <= 100) return "Moderate";

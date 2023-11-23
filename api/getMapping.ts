@@ -11,7 +11,6 @@ export const getDataSourceMappingAPi = async () => {
            data: response.data,
            status: response.status
        }
-       console.log("In response block :",responseData);
        return responseData;
    }
    catch (err : any) {
