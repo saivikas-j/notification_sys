@@ -19,68 +19,67 @@ const App = async () => {
     const allUsersPromise = await getAllUserData();
     const allUsers: iUserData[] = allUsersPromise.data;
 
-    // const latestDataPromise = await getAllLatestData();
-    // const latestData: iPollutionData[] = latestDataPromise.data;
+    const latestDataPromise = await getAllLatestData();
+    const latestData: iPollutionData[] = latestDataPromise.data;
 
-    const latestData: iPollutionData[] = [
-        {
-          recordedAt: new Date(),
-          data: {
-            NO2: 15,
-            SO2: 9,
-            PM10: null,
-            O3: 15,
-            CO: 0.09,
-            PM25: 120,
-            Pb: null,
-            AQI: 68
-          },
-          dataSourceId: '2'
-        },
-        {
-          recordedAt: new Date(),
-          data: {
-            NO2: 14,
-            PM25: 32,
-            Pb: null,
-            AQI: 73,
-            SO2: 10,
-            PM10: 73,
-            O3: 15,
-            CO: 0.09
-          },
-          dataSourceId: '4'
-        },
-        {
-          recordedAt: new Date(),
-          data: {
-            SO2: 2,
-            PM10: 51,
-            O3: 0,
-            CO: 0,
-            NO2: 25,
-            PM25: 13,
-            Pb: 0,
-            AQI: 51
-          },
-          dataSourceId: '16'
-        },
-        {
-          recordedAt: new Date(),
-          data: {
-            SO2: 25,
-            PM10: 60.2,
-            O3: 40,
-            CO: null,
-            NO2: 20,
-            Pb: 22,
-            AQI: null
-          },
-          dataSourceId: '5'
-        }
-    ]
+    // const latestData: iPollutionData[] = [
+    //     {
+    //       recordedAt: new Date(),
+    //       data: {
+    //         NO2: 15,
+    //         SO2: 9,
+    //         PM10: null,
+    //         O3: 15,
+    //         CO: 0.09,
+    //         PM25: 120,
+    //         Pb: null,
+    //         AQI: 68
+    //       },
+    //       dataSourceId: '2'
+    //     },
+    //     {
+    //       recordedAt: new Date(),
+    //       data: {
+    //         NO2: 14,
+    //         PM25: 32,
+    //         Pb: null,
+    //         AQI: 73,
+    //         SO2: 10,
+    //         PM10: 73,
+    //         O3: 15,
+    //         CO: 0.09
+    //       },
+    //       dataSourceId: '4'
+    //     },
+    //     {
+    //       recordedAt: new Date(),
+    //       data: {
+    //         SO2: 2,
+    //         PM10: 51,
+    //         O3: 0,
+    //         CO: 0,
+    //         NO2: 25,
+    //         PM25: 13,
+    //         Pb: 0,
+    //         AQI: 51
+    //       },
+    //       dataSourceId: '16'
+    //     },
+    //     {
+    //       recordedAt: new Date(),
+    //       data: {
+    //         SO2: 25,
+    //         PM10: 60.2,
+    //         O3: 40,
+    //         CO: null,
+    //         NO2: 20,
+    //         Pb: 22,
+    //         AQI: null
+    //       },
+    //       dataSourceId: '5'
+    //     }
+    // ]
 
-    console.log(allUsers);
 
     const AQIDetails: iAQIData = {};
     for(let i = 0; i < latestData.length; i++)
@@ -101,8 +100,6 @@ const App = async () => {
         }
     }
 
-    console.log(AQIDetails)
-
     for(let i = 0; i < allUsers.length; i++)
     {
         const filteredAQI: iAQIData = {};
@@ -111,7 +108,6 @@ const App = async () => {
             if (AQIDetails.hasOwnProperty(key))
                 filteredAQI[key] = AQIDetails[key];
         
-        console.log(filteredAQI);
 
         if(allUsers[i].sub && Object.keys(filteredAQI).length > 0)
             await sendMail(allUsers[i], filteredAQI, currDate, AQIparams);
@@ -119,4 +115,4 @@ const App = async () => {
 
 }
 
-App();
+export default App;

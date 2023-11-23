@@ -11,14 +11,13 @@ const helpers = {
 
 export const sendMail = async (user: iUserData, AQIvalues: iAQIData, date: Date, AQIparameters: string[]) => {
 
-    console.log(AQIvalues);
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
         secure: true,
         auth: {
-        user: 'regentxy@gmail.com',
-        pass: 'cqyn ueft psyx jmbx',
+        user: '<YOUR_EMAIL_ID',
+        pass: '<YOUR_PASSWORD>',
         },
     });
 
