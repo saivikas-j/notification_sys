@@ -11,9 +11,6 @@ Before running, add your email address and password in ./services/sendmail.ts fi
 
 Make sure the pollution-service server is running before running it.<br/>
 You can also modify index.ts to change the time at which the job is to run
-   ```
-   
-
 
 
 ## About
