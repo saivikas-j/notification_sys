@@ -22,7 +22,7 @@ Also since no live data is coming in at present, I've commented out a sample pol
 - After filtering out the current data, it iterates over each user who has subscribed to daily notifications and checks their last send date and considers only the ones whose last send date is atleast one less than the current date.
 - Next the program checks for the localities for which the user requires the pollution data and sends only those corrseponding localities' data if they are present in the filtered-out latest pollution data, through nodemailer using handlebar templates.
 - A job is scheduled running our main program every day.
-- Below are the screenshots of the email notifications which users receive.
+- Below is a sample screenshot of the email notification which a user receives.
 
 ## Screenshot
 
